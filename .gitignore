@@ -5,4 +5,4 @@ venv/
 # Ignore specific files
 Export.csv
 temp.json
-.DS_Store
+**/.DS_Store
