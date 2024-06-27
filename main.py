@@ -39,13 +39,8 @@ def merge_log_files(folder_path, output_file):
                     outfile.write('\n')
     print(f"All log files have been merged into {output_file}")
 
-
-import re
-import json
-
-
 def analyze_log_info(Current_line_Info):
-    pattern = re.compile(r'\[(.*?)\]\[(.*?)\] (.*?):(.*?) "(.*?)"\|"(.*?)" \(TorrentInfoHash: (.*?)\)')
+    pattern = re.compile(r'\[(.*?)]\[(.*?)] (.*?):(.*?) "(.*?)"\|"(.*?)" \(TorrentInfoHash: (.*?)\)')
 
     match = pattern.match(Current_line_Info)
 
