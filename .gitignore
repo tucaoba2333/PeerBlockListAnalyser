@@ -1,0 +1,8 @@
+# Ignore logs and venv folders
+logs/
+venv/
+
+# Ignore specific files
+Export.csv
+temp.json
+.DS_Store
