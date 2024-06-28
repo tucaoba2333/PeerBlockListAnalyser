@@ -91,7 +91,7 @@ with open(temp_file_path, 'r', encoding='utf-8') as input_file:
 TempFileSize = get_FileSize(temp_file_path)
 
 print("Temp.json successfully generated.")
-print(f"Here is where the temp file just generated:{temp_file_path}, size is:{TempFileSize}MiB. It will be removed.")
+print(f"Here is where the temp file just generated:{temp_file_path}, size is:{TempFileSize}MiB. It will be removed soon.")
 os.remove(temp_file_path)
 pdObj = pd.read_json('temp.json', orient='index')
 

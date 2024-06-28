@@ -1,5 +1,7 @@
 import json, time
 from tqdm import tqdm
+import matplotlib.pyplot as plt
+import numpy as np
 
 
 def get_key_count(file_name):
@@ -41,22 +43,33 @@ def list_all_peer_id(i_group_number, key_count):
 
 
 filename = 'temp.json'
-
 i_group_number = 1
-
 key_count = get_key_count('temp.json')
-
 peer_id_stat_dict = {}
+
 
 with open('temp.json', 'r') as file:
     data = json.load(file)
-
 keys = sorted(data.keys(), key=int)
-
 peer_id_stat = list_all_peer_id(i_group_number, key_count)
 peer_id_stat['Unknown '] = peer_id_stat['']
 del peer_id_stat['']
 sorted_peer_id = sorted(peer_id_stat.items(), key=lambda x: x[1], reverse=True)
+
+print(sorted_peer_id)
 print(f"{key_count} lists of data checked:")
 for key, value in sorted_peer_id:
     print(f"{key}: {value}({(value / key_count) * 100:.4f}%)")
+
+keys = [item[0] for item in sorted_peer_id]
+values = [item[1] for item in sorted_peer_id]
+
+print("Keys:", keys)
+print("Values:", values)
+
+y = np.array(values)
+
+plt.pie(y,labels=keys,labeldistance=1.2,autopct='%1.1f%%')
+
+plt.title("Pie chart of banned peers:")
+plt.show()
