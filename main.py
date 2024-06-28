@@ -2,10 +2,13 @@ import os, time, tempfile, re, openpyxl, json
 import pandas as pd
 from tqdm import tqdm
 
+
 def get_FileSize(filePath):
-    fsize = os.path.getsize(filePath)
-    fsize = fsize/float(1024*1024)
-    return round(fsize, 2)
+    size = os.path.getsize(filePath)
+    size = size / float(1024 * 1024)
+    return round(size, 2)
+
+
 def count_lines_in_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
         return sum(1 for line in file)
@@ -39,6 +42,7 @@ def merge_log_files(folder_path, output_file):
                     outfile.write('\n')
     print(f"All log files have been merged into {output_file}")
 
+
 def analyze_log_info(Current_line_Info):
     pattern = re.compile(r'\[(.*?)]\[(.*?)] (.*?):(.*?) "(.*?)"\|"(.*?)" \(TorrentInfoHash: (.*?)\)')
 
@@ -59,7 +63,7 @@ def analyze_log_info(Current_line_Info):
         return None
 
 
-#----------------------------------------------#
+# ----------------------------------------------#
 
 log_folder_path = "./logs"
 print(analyze_log_folder(log_folder_path))
@@ -84,10 +88,7 @@ with open(temp_file_path, 'r', encoding='utf-8') as input_file:
         json_data = {str(index): data for index, data in data_list}
         json.dump(json_data, json_file, indent=2)
 
-
 TempFileSize = get_FileSize(temp_file_path)
-
-
 
 print("Temp.json successfully generated.")
 print(f"Here is where the temp file just generated:{temp_file_path}, size is:{TempFileSize}MiB. It will be removed.")
