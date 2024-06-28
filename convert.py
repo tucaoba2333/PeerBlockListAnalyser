@@ -75,7 +75,7 @@ print(f"Temporary merged log file created at: {temp_file_path}")
 
 open("temp.json", 'w', encoding='utf-8')
 with open(temp_file_path, 'r', encoding='utf-8') as input_file:
-    with open("./temp.json", 'w', encoding='utf-8') as json_file:
+    with open("temp.json", 'w', encoding='utf-8') as json_file:
         data_list = []
         i = 0
         for line in tqdm(input_file, total=total_lines, unit="lines", desc="Processing lines"):
