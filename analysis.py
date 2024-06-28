@@ -34,8 +34,8 @@ def list_all_peer_id(i_group_number, key_count):
         else:
             peer_id_stat_dict[current_peer_id] = 1
         i_group_number += 1
-        pbar.update(1)  # 更新进度条
-    pbar.close()  # 关闭进度条
+        pbar.update(1)
+    pbar.close()
 
     return peer_id_stat_dict
 

@@ -94,8 +94,15 @@ print("Temp.json successfully generated.")
 print(f"Here is where the temp file just generated:{temp_file_path}, size is:{TempFileSize}MiB. It will be removed.")
 os.remove(temp_file_path)
 pdObj = pd.read_json('temp.json', orient='index')
-pdObj.to_csv('Export.csv', index=False)
-print("Export.csv has been generated.")
-print("Attention! Every time generate Temp.json will over write the old one, do backup before run this script!!!!!!")
-print("Attention! Every time generate Temp.json will over write the old one, do backup before run this script!!!!!!")
-print("Attention! Every time generate Temp.json will over write the old one, do backup before run this script!!!!!!")
+
+try:
+    pdObj.to_csv('Export.csv', index=False)
+except IOError:
+    print("Error occurred when create CSV file.")
+else:
+    print("Export.csv has been generated.")
+
+
+print("Attention! Every time generate Temp.json will over write the old one. If you need that, do backup before run "
+      "this script!!!!!!")
+
