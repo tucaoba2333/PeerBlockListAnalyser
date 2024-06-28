@@ -1,4 +1,7 @@
 # PeerBlockListAnalyser
+# _**This script is still in progress!!!**_
+## Introduction:
+
 A simple python script to analysis qBittorrent ClientBlocker's logs.
 
 Can only convert log files into csv and analysis peer id now.
