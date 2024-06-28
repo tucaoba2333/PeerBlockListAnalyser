@@ -1,6 +1,8 @@
 # PeerBlockListAnalyser
 A simple python script to analysis qBittorrent ClientBlocker's logs 
 
-Can only convert log files into csv now.
+Can only convert log files into csv and analysis peer id now.
 
-Usage:put /logs into project directory, then run main.py
+## Usage:
+1. Put /logs into project directory, then run convert.py.
+2. Now there will be a Temp.json and Export.csv at current directory. Run analysis.py.
