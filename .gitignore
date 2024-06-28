@@ -6,3 +6,4 @@ venv/
 Export.csv
 temp.json
 **/.DS_Store
+analysis.py
